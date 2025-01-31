@@ -3,215 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nai Subha Kids Paradise School</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sample School Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.1/dist/gsap.min.js"></script>
     <style>
-        /* Aesthetic Background Gradient */
-        body {
-            background: linear-gradient(135deg, #a7c5eb, #f7f7f7); /* Soft blue and white gradient */
-            color: #1e3a8a;
-            font-family: 'Arial', sans-serif;
+        /* Resetting some default styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        h1, h2, h3, p {
-            animation: fadeIn 1.5s ease-in-out; /* Add fade-in effect */
+        body {
+            font-family: 'Roboto', sans-serif;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        /* Button Styling */
-        .button {
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin: 10px 0;
-            max-width: 350px;
+        /* Navigation Bar */
+        .navbar {
+            background-color: #1c1c1c;
+            padding: 10px 20px;
+            position: fixed;
             width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f44336;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('school-hero.jpg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            color: white;
             text-align: center;
-            transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 2s ease-out;
         }
 
-        .button:hover {
-            transform: scale(1.1); /* Slightly enlarge the button */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 700;
+            animation: slideUp 1.5s ease-out;
         }
 
-        .button-instagram {
-            background: #e4405f;
-            color: #fff;
+        .hero p {
+            font-size: 24px;
+            animation: slideUp 2s ease-out;
         }
 
-        .button-facebook {
-            background: #3b5998;
-            color: #fff;
+        .btn {
+            padding: 10px 30px;
+            background-color: #f44336;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: 0.3s;
         }
 
-        .button-whatsapp {
-            background: #25D366;
-            color: #fff;
+        .btn:hover {
+            background-color: #e53935;
         }
 
-        .button-location {
-            background: #ff9800;
-            color: #fff;
+        /* About Section */
+        .about {
+            background-color: #f4f4f4;
+            padding: 50px;
+            text-align: center;
         }
 
-        /* Hover Effects */
-        h1, h3 {
-            color: #1e3a8a;
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
         }
 
-        /* Animation for Fading In Text */
+        .about-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #e0e0e0;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 20px;
+            width: 250px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 16px;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .events h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .events-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .event {
+            background-color: #f4f4f4;
+            padding: 20px;
+            width: 300px;
+            margin: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .event h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .event p {
+            font-size: 16px;
+        }
+
+        /* Contact Us Section */
+        .contact {
+            background-color: #e0e0e0;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .contact button {
+            background-color: #f44336;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact button:hover {
+            background-color: #e53935;
+        }
+
+        /* Student Portal Section */
+        .student-portal {
+            background-color: #f4f4f4;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .student-portal h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #1c1c1c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Animations */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
-                transform: translateY(20px);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
-        /* Image Fade-in Animation */
-        img {
-            max-width: 100%;
-            border-radius: 10px;
-            opacity: 0;
-            animation: fadeInImage 1.5s forwards;
-        }
-
-        @keyframes fadeInImage {
+        @keyframes slideUp {
             0% {
+                transform: translateY(30px);
                 opacity: 0;
             }
             100% {
+                transform: translateY(0);
                 opacity: 1;
             }
         }
 
-        /* Content Section Styling */
-        h3 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
 
-        p {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
+            .service-cards {
+                flex-direction: column;
+            }
 
-        /* About Us Section Styling */
-        .about-section {
-            background: #e0f7fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px auto;
-            width: 80%;
-        }
-
-        .why-choose-us {
-            background: #f3f4f6;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px auto;
-            width: 80%;
+            .events-list {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- School Name -->
-    <h1>🎉 Nai Subha Kids Paradise School 🎉</h1>
 
-    <!-- Tagline -->
-    <p style="font-size: 1.3rem; font-weight: bold;">
-        School with the best student care and educational services.
-    </p>
-
-    <hr style="border: 2px solid #1e3a8a; width: 60%; margin: 20px auto;"/>
-
-    <!-- Main Image -->
-    <p style="text-align: center;">
-        <img src="https://naisubhaedu.wordpress.com/wp-content/uploads/2025/01/0507ba2b-ec24-4193-9423-e16f0433d0aa-1.jpg?w=1024" 
-            alt="Children in Classroom">
-    </p>
-
-    <!-- Section Header -->
-    <h3>A Path to Children’s Bright Future 🚀</h3>
-
-    <hr style="border: 2px solid #1e3a8a; width: 60%; margin: 20px auto;"/>
-
-    <!-- Second Image -->
-    <p style="text-align: center;">
-        <img src="https://naisubhaedu.wordpress.com/wp-content/uploads/2025/01/ea328c1b-734d-4779-87c2-312e538fbc85-1.jpg?w=556" 
-            alt="Kids Learning">
-    </p>
-
-    <!-- Contact Section -->
-    <h3>📞 Reach Us At</h3>
-
-    <!-- Buttons -->
-    <p style="text-align: center;">
-        <a href="https://www.instagram.com/nai_subha/" class="button button-instagram">
-            📸 Instagram
-        </a>
-
-        <a href="https://m.facebook.com/NAISUBHA/" class="button button-facebook">
-            📘 Facebook
-        </a>
-
-        <a href="https://wa.link/u4xt4k" class="button button-whatsapp">
-            💬 WhatsApp
-        </a>
-
-        <a href="https://g.co/kgs/uVgU3W3" class="button button-location">
-            📍 Location
-        </a>
-    </p>
-
-    <!-- About Us Section -->
-    <div class="about-section">
-        <h2>📚 About Us</h2>
-        <p>
-            Welcome to <strong>Nai Subha Kids Paradise School</strong>, where young minds embark on a journey of learning, creativity, and growth! 
-            Established in 2011, we provide a nurturing and engaging environment that lays a strong foundation for lifelong learning.
-        </p>
-    </div>
-
-    <!-- Mission & Vision -->
-    <div class="about-section">
-        <h3>🚀 Our Mission</h3>
-        <p>To foster a love for learning by providing a holistic and joyful educational experience.</p>
-
-        <h3>🌎 Our Vision</h3>
-        <p>To be a leading early education institution nurturing confident and compassionate learners.</p>
-    </div>
-
-    <!-- Why Choose Us -->
-    <div class="why-choose-us">
-        <h3>🌟 Why Choose Us?</h3>
-        <ul style="list-style: none; padding: 0; font-size: 1.1rem; color: #333; text-align: center;">
-            <li>✅ Experienced and caring teachers</li>
-            <li>✅ Interactive and play-based learning approach</li>
-            <li>✅ Safe and child-friendly environment</li>
-            <li>✅ Strong foundation in academics and life skills</li>
-            <li>✅ Engaging extracurricular activities</li>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">SchoolName</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#events">School Events</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#student-portal">Student Portal</a></li>
         </ul>
-    </div>
+    </nav>
 
-    <p style="font-weight: bold; font-size: 1.2rem; text-align: center;">
-        ✨ Join us at Nai Subha Kids Paradise School—where every new day is a step toward a brighter future! ✨
-    </p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to Our School</h1>
+        <p>Where learning meets excellence</p>
+        <a href="#about" class="btn">Learn More</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Our School</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>We are a leading educational institution offering world-class teaching facilities, extracurricular activities, and a focus on holistic development.</p>
+            </div>
+            <div class="about-image">
+                <img src="school-building.jpg" alt="School Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <h3>Quality Education</h3>
+                <p>We provide world-class educational facilities.</p>
+            </div>
+            <div class="service-card">
+                <h3>Sports Facilities</h3>
+                <p>State-of-the-art sports facilities for every student.</p>
+            </div>
+            <div class="service-card">
+                <h3>Extracurricular Activities</h3>
+                <p>We offer a variety of extracurricular activities to foster all-round development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- School Events Section -->
+    <section id="events" class="events">
+        <h2>Upcoming School Events</h2>
+        <div class="events-list">
+            <div class="event">
+                <h3>Annual Sports Day</h3>
+                <p>Date: March 15, 2025</p>
+                <p>Location: School Grounds</p>
+            </div>
+            <div class="event">
+                <h3>Science Fair</h3>
+                <p>Date: April 10, 2025</p>
+                <p>Location: School Auditorium</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form action="submit_form.php" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </section>
+
+    <!-- Student Portal Section -->
+    <section id="student-portal" class="student-portal">
+        <h2>Student Portal</h2>
+        <p>Access grades, assignments, and schedules.</p>
+        <a href="login.html" class="btn">Login</a>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SchoolName. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // GSAP Animations
+        gsap.from('.hero h1', { opacity: 0, y: -50, duration: 1.5 });
+        gsap.from('.hero p', { opacity: 0, y: -30, duration: 2 });
+        gsap.from('.about-content', { opacity: 0, x: -50, duration: 1.5 });
+        gsap.from('.service-card', { opacity: 0, scale: 0.5, duration: 1.5, stagger: 0.3 });
+    </script>
 </body>
 </html>
